@@ -9,12 +9,19 @@ var TL = gsap.timeline();
 
 
 
-TL.to("#threePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: -100})
-  .to("#threePoint", {autoAlpha:0, visbility: "hidden"})
-  .to("#inair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
-  .to("#inair", {autoAlpha:0, visbility: "hidden"})
-  .to("#hoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
-  .to("#hoop", {autoAlpha:0, visbility: "hidden"});
+// TL.to("#threePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: -100})
+//   .to("#threePoint", {autoAlpha:0, visbility: "hidden"})
+//   .to("#inair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
+//   .to("#inair", {autoAlpha:0, visbility: "hidden"})
+//   .to("#hoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
+//   .to("#hoop", {autoAlpha:0, visbility: "hidden"});
+
+// TL.to("#fThreePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: 100})
+//   .to("#fThreePoint", {autoAlpha:0, visbility: "hidden"})
+//   .to("#fInair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
+//   .to("#fInair", {autoAlpha:0, visbility: "hidden"})
+//   .to("#fHoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
+//   .to("#fHoop", {autoAlpha:0, visbility: "hidden"});
 
 
 TL.to("#launch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: -100})
@@ -24,4 +31,10 @@ TL.to("#launch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: -100})
   .to("#dunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: -100})
   .to("#dunk", {autoAlpha:0, visbility: "hidden"});
 
+// TL.to("#fLaunch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: 100})
+//   .to("#fLaunch", {autoAlpha:0, visbility: "hidden"})
+//   .to("#fAir", {autoAlpha:1, visibility: "visible", duration: 1.8, x: 100})
+//   .to("#fAir", {autoAlpha:0, visbility: "hidden"})
+//   .to("#fDunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: 100})
+//   .to("#fDunk", {autoAlpha:0, visbility: "hidden"});
 
