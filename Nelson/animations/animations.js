@@ -1,4 +1,4 @@
-var TL = gsap.timeline();
+
 
 // gsap.set(".threePoint", { xPercent:-50, yPercent:-50, left:"50%", top:"50%"})
 // gsap.set(".inair", { xPercent:-35, yPercent:-50, left:"35%", top:"50%"})
@@ -19,34 +19,47 @@ var TL = gsap.timeline();
 <img class="gif" id="fAir" src="../flip_kagami_air.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 35%; height: 200px; width: 300px; margin:0; padding:0;">
 <img class="gif" id="fDunk" src="../flipped_meteor_jam.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 60%; height: 200px; width: 300px; margin:0; padding:0;">
 <script src = "../animations/animations.js"></script> */}
+function animation() {
+var data = [{"BPM": "15.6", "3P":"125", "2P":"400"}, {"BPM": "11.7", "3P":"250", "2P": "225"}];
+var TL = gsap.timeline();
+
+if (data[0].BPM > data[1].BPM){
+  if(data[0]["3P"]>data[0]["2P"]){
+
+    TL.to("#fThreePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: 100})
+      .to("#fThreePoint", {autoAlpha:0, visbility: "hidden"})
+      .to("#fInair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
+      .to("#fInair", {autoAlpha:0, visbility: "hidden"})
+      .to("#fHoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
+      .to("#fHoop", {autoAlpha:0, visbility: "hidden"});
+  } else {
+
+    TL.to("#fLaunch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: 100})
+      .to("#fLaunch", {autoAlpha:0, visbility: "hidden"})
+      .to("#fAir", {autoAlpha:1, visibility: "visible", duration: 1.8, x: 100})
+      .to("#fAir", {autoAlpha:0, visbility: "hidden"})
+      .to("#fDunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: 100})
+      .to("#fDunk", {autoAlpha:0, visbility: "hidden"});
+  }
+} else {
+  if (data[1]["3P"]>data[1]["3P"]){
+    TL.to("#threePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: -100})
+      .to("#threePoint", {autoAlpha:0, visbility: "hidden"})
+      .to("#inair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
+      .to("#inair", {autoAlpha:0, visbility: "hidden"})
+      .to("#hoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
+      .to("#hoop", {autoAlpha:0, visbility: "hidden"});
+  } else {
+
+    TL.to("#launch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: -100})
+      .to("#launch", {autoAlpha:0, visbility: "hidden"})
+      .to("#air", {autoAlpha:1, visibility: "visible", duration: 1.8, x: -100})
+      .to("#air", {autoAlpha:0, visbility: "hidden"})
+      .to("#dunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: -100})
+      .to("#dunk", {autoAlpha:0, visbility: "hidden"});
+  }
+}
+}
 
 
-// TL.to("#threePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: -100})
-//   .to("#threePoint", {autoAlpha:0, visbility: "hidden"})
-//   .to("#inair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
-//   .to("#inair", {autoAlpha:0, visbility: "hidden"})
-//   .to("#hoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: -100})
-//   .to("#hoop", {autoAlpha:0, visbility: "hidden"});
-
-// TL.to("#fThreePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: 100})
-//   .to("#fThreePoint", {autoAlpha:0, visbility: "hidden"})
-//   .to("#fInair", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
-//   .to("#fInair", {autoAlpha:0, visbility: "hidden"})
-//   .to("#fHoop", {autoAlpha:1, visibility: "visible", duration: 0.8, x: 100})
-//   .to("#fHoop", {autoAlpha:0, visbility: "hidden"});
-
-
-TL.to("#launch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: -100})
-  .to("#launch", {autoAlpha:0, visbility: "hidden"})
-  .to("#air", {autoAlpha:1, visibility: "visible", duration: 1.8, x: -100})
-  .to("#air", {autoAlpha:0, visbility: "hidden"})
-  .to("#dunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: -100})
-  .to("#dunk", {autoAlpha:0, visbility: "hidden"});
-
-// TL.to("#fLaunch", {autoAlpha:1, visibility: "visible", duration: 2.8, x: 100})
-//   .to("#fLaunch", {autoAlpha:0, visbility: "hidden"})
-//   .to("#fAir", {autoAlpha:1, visibility: "visible", duration: 1.8, x: 100})
-//   .to("#fAir", {autoAlpha:0, visbility: "hidden"})
-//   .to("#fDunk", {autoAlpha:1, visibility: "visible", duration: 3.8, x: 100})
-//   .to("#fDunk", {autoAlpha:0, visbility: "hidden"});
 

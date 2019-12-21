@@ -12,16 +12,12 @@ from flask import Flask, jsonify, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 
 import secrets
-import json
 
 import sqlite3 #Important
 
 
 con = sqlite3.connect('Data-Dunks.sqlite')
 careerbest = pd.read_sql("SELECT * FROM career_best", con)
-
-careerbest
-
 
 careerbest_index = careerbest.set_index("Player")
 careerbest_index
@@ -36,53 +32,76 @@ app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 def index():
     return render_template("index.html")
 
-
 @app.route("/index.html")
 def home():
     return render_template("index.html")
 
-# @app.route("/pvp.html")
-# def playas():
-#     return render_template("pvp.html")
 
 @app.route("/pvp.html", methods=["GET", "POST"])
 def roster():
     if request.method == "POST":
-        # pvpempty_list = []
-        playerone = request.form.get("player_one")
-        playertwo = request.form.get("player_two")
-        # player_one = request.args.get("player_one")
-        # player_two = request.args.get("player_two")
-        # pvp_list = [playerone, playertwo]
+        playerone = request.form["player_one"]
+        playertwo = request.form["player_two"]
+
         session["player_one"] = playerone
         session["player_two"] = playertwo
-
-        # for player in pvp_list:
-        #     pvpempty_list.append(careerbest_index.loc[player].to_json(orient='split'))
-
-        # return render_template('pvp.html')
-#         return playerone
-#         return playertwo
     return render_template("pvp.html")
-
 
 @app.route("/pvpstats")
 def info():
-    pList = []
+    player_list = []
     playerone = session.get("player_one")
-    playertwo = session.get('player_two')
-    pvpList = [playerone, playertwo]
-    for player in pvpList:
-        pList.append(careerbest_index.loc[player, ["BPM", "DBPM", "OBPM", "PER", "PTS", "eFG%"]].to_json(orient = "records"))
+    playertwo = session.get("player_two")
+    pvplist = [playerone, playertwo]
+    for player in pvplist:
+        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
 
-    return jsonify(pList)
+    return jsonify(player_list)
 
 
-                # BPM(12), DBPM(13), OBPM(28), PER(32), PTS(34), EFG%(49)
-@app.route("/tvt.html")
+@app.route("/tvt.html", methods=["GET", "POST"])
 def teamroster():
+    if request.method == "POST":
+        player1 = request.form["player_one"]
+        player2 = request.form["player_two"]
+        player3 = request.form["player_three"]
+        player4 = request.form["player_four"]
+        player5 = request.form["player_five"]
+        player6 = request.form["player_six"]
+        player7 = request.form["player_seven"]
+        player8 = request.form["player_eight"]
+        player9 = request.form["player_nine"]
+        player10 = request.form["player_ten"]
+        session["player_one"] = player1
+        session["player_two"] = player2
+        session["player_three"] = player3
+        session["player_four"] = player4
+        session["player_five"] = player5
+        session["player_six"] = player6
+        session["player_seven"] = player7
+        session["player_eight"] = player8
+        session["player_nine"] = player9
+        session["player_ten"] = player10
     return render_template("tvt.html")
 
+@app.route("/tvtstats")
+def team():
+    team_list = []
+    player1= session.get("player_one")
+    player2 = session.get("player_two")
+    player3 = session.get("player_three")
+    player4 = session.get("player_four")
+    player5 = session.get("player_five")
+    player6 = session.get("player_six")
+    player7 = session.get("player_seven")
+    player8 = session.get("player_eight")
+    player9 = session.get("player_nine")
+    player10 = session.get("player_ten")
+    pvplist = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
+    for player in pvplist:
+        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
+
+    return jsonify(team_list)
 
 @app.route("/about.html")
 def aboutus():
@@ -94,7 +113,21 @@ def stats():
     return render_template("stats.html")
 
 
-# In[135]:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
