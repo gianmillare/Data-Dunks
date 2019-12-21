@@ -20,6 +20,8 @@
 
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 	<!-- Importing link to style.css file -->
 	<link href="../static/css/style3.css" rel="stylesheet">
 </head>
@@ -73,41 +75,41 @@
 <div class="row welcome text-center">
 	<div class="col-12">
 		<div class="header">
-			<form>
+			<form id="form1">
 				<h2>Input Your Players</h2>
 				<div class="form-box">
 
-				<input type="text" class="search-field player1" placeholder="POINT GUARD">
+				<input type="text" class="search-field player1" placeholder="POINT GUARD" name="player_one">
 
-				<input type="text" class="search-field player2" placeholder="POINT GUARD">
-
-				<br>
-
-				<input type="text" class="search-field player3" placeholder="SHOOTING GUARD">
-
-				<input type="text" class="search-field player4" placeholder="SHOOTING GUARD">
+				<input type="text" class="search-field player2" placeholder="POINT GUARD" name="player_two">
 
 				<br>
 
-				<input type="text" class="search-field player5" placeholder="SHOOTING FORWARD">
+				<input type="text" class="search-field player3" placeholder="SHOOTING GUARD" name="player_three">
 
-				<input type="text" class="search-field player6" placeholder="SHOOTING FORWARD">
-
-				<br>
-
-				<input type="text" class="search-field player7" placeholder="POWER FORWARD">
-
-				<input type="text" class="search-field player8" placeholder="POWER FORWARD">
+				<input type="text" class="search-field player4" placeholder="SHOOTING GUARD" name="player_four">
 
 				<br>
 
-				<input type="text" class="search-field player9" placeholder="CENTER">
+				<input type="text" class="search-field player5" placeholder="SHOOTING FORWARD" name="player_five">
 
-				<input type="text" class="search-field player10" placeholder="CENTER">
+				<input type="text" class="search-field player6" placeholder="SHOOTING FORWARD" name="player_six">
 
 				<br>
 
-				<button class="search-btn" type="button">Versus</button>
+				<input type="text" class="search-field player7" placeholder="POWER FORWARD" name="player_seven">
+
+				<input type="text" class="search-field player8" placeholder="POWER FORWARD" name="player_eight">
+
+				<br>
+
+				<input type="text" class="search-field player9" placeholder="CENTER" name="player_nine">
+
+				<input type="text" class="search-field player10" placeholder="CENTER" name="player_ten">
+
+				<br>
+
+				<button form="form1" class="search-btn" type="submit" onsubmit="buildPlot()">Versus</button>
 				
 				</div>
 			</form>
@@ -119,7 +121,7 @@
 <!-- End Forms -->
 
 <!-- Start Stats Container -->
-<div class="container-fluid padding">
+<!-- <div class="container-fluid padding">
 <div class="row padding">
 	<div class="col-md-6">
 		<h3>Team 1 Stats</h3>
@@ -150,7 +152,7 @@
 		<br>
 	</div>
 </div>
-</div>
+</div> -->
 <!-- End Stats Containers -->
 
 <!-- Start Box PlusMinus Bar Chart -->
@@ -159,6 +161,7 @@
 	<div class="col-12">
 		<h1>Box PlusMinus</h1>
 		<hr>
+		<div id="tvt_chart"></div>
 	</div>
 </div>
 </div>
@@ -170,12 +173,26 @@
 	<div class="col-12">
 		<h1>Animations</h1>
 		<hr>
+<img class="gif" id="threePoint" src="../midorama-shot.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 70%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="inair" src="../ballflightline.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 50%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="hoop" src="../going_through_hoop.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 20%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="launch" src="../kagami_launch.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 70%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="air" src="../kagami_air.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 50%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="dunk" src="../meteor_jam.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 20%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fThreePoint" src="../fliped_midorima_shot.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 5%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="fInair" src="../flipped_inflight.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 35%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fHoop" src="../flipped_through_hoop.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 60%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fLaunch" src="../flip_kagami_launch.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 5%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="fAir" src="../flip_kagami_air.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 35%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fDunk" src="../flipped_meteor_jam.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 60%; height: 200px; width: 300px; margin:0; padding:0;">
+<img id="court" src="../basketball-court-png-hd-basketball-court-background-related-keywords-suggestions-2085.png">
+<script src = "../animations/animations.js"></script> 
 	</div>
 </div>
 </div>
 <!-- End Animation Container -->
 
-
+<script src="{{ url_for('static', filename='js/app1.js') }}"></script>
 
 
 
