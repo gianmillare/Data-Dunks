@@ -12,6 +12,7 @@ from flask import Flask, jsonify, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 
 import secrets
+import json
 
 import sqlite3 #Important
 
@@ -72,7 +73,7 @@ def info():
     playertwo = session.get('player_two')
     pvpList = [playerone, playertwo]
     for player in pvpList:
-        pList.append(careerbest_index.loc[player, ["BPM", "DBPM", "OBPM", "PER", "PTS", "eFG%"]].to_json(orient='split'))
+        pList.append(careerbest_index.loc[player, ["BPM", "DBPM", "OBPM", "PER", "PTS", "eFG%"]].to_json(orient = "records"))
 
     return jsonify(pList)
 
@@ -98,4 +99,3 @@ def stats():
 
 if __name__ == "__main__":
     app.run(debug=True)
-

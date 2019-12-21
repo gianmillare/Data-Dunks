@@ -79,7 +79,7 @@
 
 				<input type="text" class="search-field player1" placeholder="PLAYER" name="player_one">
 
-				<button form="form1" class="search-btn" type="button" onclick="pvp()">Versus</button>
+				<button form="form1" class="search-btn" type="submit" onsubmit="pvp()">Versus</button>
 
 				<input type="text" class="search-field player2" placeholder="PLAYER" name="player_two">
 
@@ -98,6 +98,10 @@
 	<div id="stats1" class="col-md-6">
 		<h3>Player 1 Stats</h3>
 		<hr>
+		<table id="split">
+			<thead></thead>
+			<tbody></tbody>
+		</table>
 	</div>
 	<div id="stats2" class="col-md-6">
 		<h3>Player 2 Stats</h3>
