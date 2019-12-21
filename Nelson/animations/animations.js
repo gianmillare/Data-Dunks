@@ -6,7 +6,19 @@ var TL = gsap.timeline();
 // gsap.set(".threePoint", {autoAlpha:1, visibility: "visible", xPercent:-50, yPercent:-50, left:"50%", top:"50%"})
 // gsap.set(".threePoint", {autoAlpha:1, visibility: "visible", xPercent:-50, yPercent:-50, left:"50%", top:"50%"})
 
-
+{/* <img class="gif" id="threePoint" src="../midorama-shot.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 70%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="inair" src="../ballflightline.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 50%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="hoop" src="../going_through_hoop.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 20%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="launch" src="../kagami_launch.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 70%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="air" src="../kagami_air.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 50%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="dunk" src="../meteor_jam.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 20%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fThreePoint" src="../fliped_midorima_shot.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 5%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="fInair" src="../flipped_inflight.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 35%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fHoop" src="../flipped_through_hoop.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 60%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fLaunch" src="../flip_kagami_launch.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 5%; height: 200px; width: 300px; margin:0; padding: 0;">
+<img class="gif" id="fAir" src="../flip_kagami_air.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 35%; height: 200px; width: 300px; margin:0; padding:0;">
+<img class="gif" id="fDunk" src="../flipped_meteor_jam.gif" style = "visibility: hidden; position: absolute; top: 55%; left: 60%; height: 200px; width: 300px; margin:0; padding:0;">
+<script src = "../animations/animations.js"></script> */}
 
 
 // TL.to("#threePoint", {autoAlpha:1, visibility: "visible", duration: 2.1, x: -100})
