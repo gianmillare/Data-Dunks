@@ -53,9 +53,12 @@ def info():
     playerone = session.get("player_one")
     playertwo = session.get("player_two")
     pvplist = [playerone, playertwo]
-    for player in pvplist:
-        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
 
+   
+    for player in pvplist:
+        player_list.append({player: careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_dict()})
+        print(player_list[0])
+        print(type(player_list[0]))
     return jsonify(player_list)
 
 
