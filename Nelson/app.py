@@ -72,11 +72,12 @@ def info():
     playertwo = session.get('player_two')
     pvpList = [playerone, playertwo]
     for player in pvpList:
-        pList.append(careerbest_index.loc[player].to_json(orient='split'))
+        pList.append(careerbest_index.loc[player, ["BPM", "DBPM", "OBPM", "PER", "PTS", "eFG%"]].to_json(orient='split'))
 
     return jsonify(pList)
 
 
+                # BPM(12), DBPM(13), OBPM(28), PER(32), PTS(34), EFG%(49)
 @app.route("/tvt.html")
 def teamroster():
     return render_template("tvt.html")
