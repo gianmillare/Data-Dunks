@@ -100,9 +100,9 @@ def team():
     player8 = session.get("player_eight")
     player9 = session.get("player_nine")
     player10 = session.get("player_ten")
-    pvplist = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
-    for player in pvplist:
-        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
+    tvtlist = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
+    for player in tvtlist:
+        team_list.append({player: careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_dict()})
 
     return jsonify(team_list)
 
