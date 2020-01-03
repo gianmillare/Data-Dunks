@@ -16,9 +16,12 @@
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
 
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/gsap.min.js"></script>
 
 	<!-- Importing link to style.css file -->
 	<link href="../static/css/stylestats.css" rel="stylesheet">
@@ -66,6 +69,7 @@
 	</div>
 
 	<hr>
+
 <!-- End of Header -->
 
 <!-- Form Starts Here -->
@@ -73,13 +77,13 @@
 <div class="row welcome text-center">
 	<div class="col-12">
 		<div class="header">
-			<form>
-				<h1>Input a Player</h1>
-				<div class="form-box">
-
-				<input type="text" class="search-field player1" placeholder="PLAYER">
-
-				<button class="search-btn" type="button">Search</button>
+			<form id="form1" autocomplete="off" method="POST" action="/stats.html">
+				<h2>Input Player</h2>
+				<div class="form">
+					<div class = "autocomplete" >
+						<input id = "stats" type="text" class="search-field player1" placeholder="PLAYER" name="player">
+					</div>
+						<button form="form1" class="search-btn" type="submit">Find Stats</button>
 
 				</div>
 			</form>
@@ -91,25 +95,24 @@
 <!-- Form Ends Here -->
 
 <!-- Start Database Stats -->
-<div class="container-fluid padding">
-<div class="row welcome text-center">
-	<div class="col-12">
-		<h1>Searchable Statistics</h1>
-		<hr>
+<div class="container-fluid">
+	<div class="row">
+		<div  class="col-md-12">
+			<h3>Player Stats</h3>
+			<hr>
+			<table class = "table table-bordered" style = "color: white; ">
+				<thead>
+					<tr><th>Player</th><th>Season</th><th>BPM</th><th>2P</th><th>3P</th><th>eFG%</th><th>PER</th></tr>
+				</thead>
+				<tbody id="statsplayer"></tbody>
+			</table>
+		</div>
 	</div>
-	<div class=col-md-6>
-		<h3>Insert Photo of Player</h3>
-	</div>
-	<div class=col-md-6>
-		<h3>Statistics of Player</h3>
-	</div>
-</div>
 </div>
 <!-- End Database Stats -->
 
 
-
-
+<script src = "/static/js/appstats.js"></script> 
 
 </body>
 </html>
