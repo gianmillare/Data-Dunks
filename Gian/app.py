@@ -16,11 +16,15 @@ import secrets
 import sqlite3 #Important
 
 
-con = sqlite3.connect('Data-Dunks.sqlite')
+con = sqlite3.connect('db/Data-Dunks.sqlite')
 careerbest = pd.read_sql("SELECT * FROM career_best", con)
+career = pd.read_sql("SELECT * FROM master", con)
 
 careerbest_index = careerbest.set_index("Player")
 careerbest_index
+
+career_index = career.set_index("Player")
+career_index
 
 app = Flask(__name__)
 
@@ -53,9 +57,12 @@ def info():
     playerone = session.get("player_one")
     playertwo = session.get("player_two")
     pvplist = [playerone, playertwo]
-    for player in pvplist:
-        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
 
+   
+    for player in pvplist:
+        player_list.append({'name' :player, 'info': careerbest_index.loc[player, ["BPM", "2P", "3P", "eFG%", "PER"]].to_dict()})
+        # print(player_list[0])
+        # print(type(player_list[0]))
     return jsonify(player_list)
 
 
@@ -97,9 +104,9 @@ def team():
     player8 = session.get("player_eight")
     player9 = session.get("player_nine")
     player10 = session.get("player_ten")
-    pvplist = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
-    for player in pvplist:
-        player_list.append(careerbest_index.loc[player, ["BPM", "2P", "3P"]].to_json(orient='split'))
+    tvtlist = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
+    for player in tvtlist:
+        team_list.append({'name' :player, 'info': careerbest_index.loc[player, ["BPM", "2P", "3P", "eFG%", "PER"]].to_dict()})
 
     return jsonify(team_list)
 
@@ -108,19 +115,24 @@ def aboutus():
     return render_template("about.html")
 
 
-@app.route("/stats.html")
+@app.route("/stats.html", methods=["GET", "POST"])
 def stats():
+    if request.method == "POST":
+        player = request.form["player"]
+        session["player"] = player
+
     return render_template("stats.html")
 
+@app.route("/statsplayer")
+def statsplayer():
+    
+    player = session.get("player")
 
-
-
-
-
-
-
-
-
+   
+    player = career.loc[career["Player"] == player, ["Player", "Season", "BPM", "2P", "3P", "eFG%", "PER"]].to_dict('records')
+        # print(player_list[0])
+        # print(type(player_list[0]))
+    return jsonify(player)
 
 
 
