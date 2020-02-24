@@ -30,6 +30,12 @@ p.one {
   border-color: white;
   padding: 1% 1%;
 }
+
+h1.display-4{
+  border-style: solid;
+  border-color: white;
+  padding: 1% 1%;
+}
 /* End Body ALterations */
 
 /* Logo */
@@ -166,3 +172,29 @@ a.active, a:hover{
   padding: 8px 14px;
 }
 /* End Carousel Alterations */
+
+/* Icon Alterations */
+.fa-basketball-ball{
+  color: #FF8C00;
+}
+
+.fa-gamepad {
+  color: #9932CC;
+}
+
+.fa-chart-line {
+  color: #008B8B;
+}
+
+.fa-basketball-ball, .fa-gamepad, .fa-chart-line {
+  font-size: 4rem;
+  margin: 1rem;
+}
+/* End Icon Alterations */
+
+/* Card Alterations */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+}
