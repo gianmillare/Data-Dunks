@@ -43,8 +43,10 @@ label.logo{
   color: white;
   font-size: 35px;
   line-height: 80px;
-  padding: 0 100px;
+  padding: 0 25px;
   font-weight: bold;
+  border-style: solid;
+  border-color: white;
 }
 /* End Logo */
 
@@ -194,7 +196,12 @@ a.active, a:hover{
 
 /* Card Alterations */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 Azure;
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
+  color: #000000;
+}
+
+.card-img-top{
+  padding: 2.5% 2.5%;
 }
