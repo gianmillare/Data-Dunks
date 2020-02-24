@@ -12,6 +12,16 @@
 body{
   font-family: "Georgia";
   background-color: #000000;
+  color: #F8F8FF;
+}
+
+.container-fluid{
+  padding: .05% 10%;
+}
+
+.jumbotron{
+  background-color: #6495ED;
+  text-align: center;
 }
 /* End Body ALterations */
 
