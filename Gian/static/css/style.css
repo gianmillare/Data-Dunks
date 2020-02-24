@@ -8,10 +8,11 @@
 
 body{
   font-family: "Georgia";
+  background-color: #000000;
 }
 
 nav{
-  background: #000000;
+  background: #2F4F4F;
   height: 80px;
   width: 100%;
 }
