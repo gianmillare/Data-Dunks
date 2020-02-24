@@ -205,3 +205,10 @@ a.active, a:hover{
 .card-img-top{
   padding: 2.5% 2.5%;
 }
+
+/* Miscellaneous Alterations */
+img.one{
+  border-style: solid;
+  border-color: white;
+  padding: 1% 1%;
+}
