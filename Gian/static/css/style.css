@@ -1,3 +1,4 @@
+/* Set Up */
 *{
   padding: 0;
   margin: 0;
@@ -5,24 +6,30 @@
   list-style: none;
   box-sizing: border-box;
 }
+/* End Set Up */
 
+/* Body Alterations */
 body{
   font-family: "Georgia";
   background-color: #000000;
 }
+/* End Body ALterations */
 
-nav{
-  background: #000000;
-  height: 80px;
-  width: 100%;
-}
-
+/* Logo */
 label.logo{
   color: white;
   font-size: 35px;
   line-height: 80px;
   padding: 0 100px;
   font-weight: bold;
+}
+/* End Logo */
+
+/* NavBar Alteration */
+nav{
+  background: #000000;
+  height: 80px;
+  width: 100%;
 }
 
 nav ul{
@@ -103,3 +110,42 @@ a.active, a:hover{
       left: 0;
   }
 }
+/* End NavBar Alterations */
+
+/* Carousel Alteration */
+.carousel-inner img {
+  width: 70%;
+  height: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 85%;
+  transform: translateY(-20%);
+}
+
+.carousel-caption h1 {
+  font-family: Impact, Charcoal, sans-serif;
+  color: Azure;
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 20px 20px 100px black;
+}
+
+.carousel-caption h3 {
+  font-family: Impact, Charcoal, sans-serif;
+  color: Azure;
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 15px 15px 50px black;
+  padding-bottom: 1rem;
+}
+
+.carousel-caption .btn {
+  font-synthesis: 95%;
+  padding: 8px 14px;
+}
+/* End Carousel Alterations */
