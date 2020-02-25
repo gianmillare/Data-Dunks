@@ -45,8 +45,8 @@ label.logo{
   line-height: 80px;
   padding: 0 25px;
   font-weight: bold;
-  border-style: solid;
-  border-color: white;
+  /* border-style: solid;
+  border-color: white; */
 }
 /* End Logo */
 
@@ -139,16 +139,16 @@ a.active, a:hover{
 
 /* Carousel Alteration */
 .carousel-inner img {
-  width: 70%;
-  height: 70%;
-  display: block;
+  width: 100%;
+  height: 100%;
+  /* display: block; */
   margin-left: auto;
   margin-right: auto;
 }
 
 .carousel-caption {
   position: absolute;
-  top: 85%;
+  top: 80%;
   transform: translateY(-20%);
 }
 
