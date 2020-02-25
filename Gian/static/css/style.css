@@ -169,7 +169,8 @@ a.active, a:hover{
   color: Azure;
   font-size: 200%;
   font-weight: 500;
-  text-shadow: 15px 15px 50px black;
+  /* text-shadow: 15px 15px 50px black; */
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   padding-bottom: 1rem;
 }
 

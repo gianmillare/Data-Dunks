@@ -21,7 +21,7 @@ d3.json(`/pvpstats`).then(function(data) {
         y: bpm,
         type: 'bar',
         marker:{
-            color: ['rgba(0,255,0,0.8)','rgba(0,0,255,0.8)']
+            color: ['rgba(255,0,0,0.8)','rgba(0,0,255,0.8)']
         }
     };
 	// var traceB = {
