@@ -17,10 +17,13 @@ d3.json(`/pvpstats`).then(function(data) {
 		// console.log(value['info']['BPM']);
 	});
 	var traceA = {
-		x: names,
-		y: bpm,
-		type: 'bar'
-	};
+        x: names,
+        y: bpm,
+        type: 'bar',
+        marker:{
+            color: ['rgba(255,0,0,0.8)','rgba(0,0,255,0.8)']
+        }
+    };
 	// var traceB = {
 	// 	x: ["Player"],
 	// 	y: bpm[1],
