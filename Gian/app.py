@@ -134,8 +134,24 @@ def statsplayer():
         # print(type(player_list[0]))
     return jsonify(player)
 
+# @app.after_request
+# def add_header(response):
+#     """
+#     Add headers to both force latest IE rendering engine or Chrome Frame,
+#     and also to cache the rendered page for 10 minutes.
+#     """
+#     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+#     response.headers['Cache-Control'] = 'public, max-age=0'
+#     return response
 
-
+# prevent cached responses
+# if app.config["DEBUG"]:
+#     @app.after_request
+#     def after_request(response):
+#         response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+#         response.headers["Expires"] = 0
+#         response.headers["Pragma"] = "no-cache"
+#         return response
 
 
 
