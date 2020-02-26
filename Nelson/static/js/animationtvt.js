@@ -10,15 +10,15 @@
 
 
 function animation() {
-  var bpmOne = 0;
-  var bpmTwo = 0;
-  var threeOne = 0;
-  var twoOne = 0;
-  var threeTwo = 0;
-  var twoTwo = 0;
 
   d3.json(`/tvtstats`).then(function(data) {
     // console.log(data);
+    var bpmOne = 0;
+    var bpmTwo = 0;
+    var threeOne = 0;
+    var twoOne = 0;
+    var threeTwo = 0;
+    var twoTwo = 0;
 
 
   
@@ -93,7 +93,15 @@ function animation() {
           .to("#loserL", {autoAlpha:0, visibility: "hidden", position: "static", x: 0});
       }
     }
+    bpmOne = 0;
+    bpmTwo = 0;
+    threeOne = 0;
+    twoOne = 0;
+    threeTwo = 0;
+    twoTwo = 0;
   });
+
+  
 }
 animation();
   
