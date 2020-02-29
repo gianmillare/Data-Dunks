@@ -63,6 +63,9 @@ def info():
         player_list.append({'name' :player, 'info': careerbest_index.loc[player, ["BPM", "2P", "3P", "eFG%", "PER"]].to_dict()})
         # print(player_list[0])
         # print(type(player_list[0]))
+
+    session.pop("player_one", None)
+    session.pop("player_two", None)
     return jsonify(player_list)
 
 
@@ -108,6 +111,17 @@ def team():
     for player in tvtlist:
         team_list.append({'name' :player, 'info': careerbest_index.loc[player, ["BPM", "2P", "3P", "eFG%", "PER"]].to_dict()})
 
+
+    session.pop("player_one", None)
+    session.pop("player_two", None)
+    session.pop("player_three", None)
+    session.pop("player_four", None)
+    session.pop("player_five", None)
+    session.pop("player_six", None)
+    session.pop("player_seven", None)
+    session.pop("player_eight", None)
+    session.pop("player_nine", None)
+    session.pop("player_ten", None)
     return jsonify(team_list)
 
 @app.route("/about.html")
@@ -132,26 +146,12 @@ def statsplayer():
     player = career.loc[career["Player"] == player, ["Player", "Season", "BPM", "2P", "3P", "eFG%", "PER"]].to_dict('records')
         # print(player_list[0])
         # print(type(player_list[0]))
+
+    session.pop("player", None)
     return jsonify(player)
 
-# @app.after_request
-# def add_header(response):
-#     """
-#     Add headers to both force latest IE rendering engine or Chrome Frame,
-#     and also to cache the rendered page for 10 minutes.
-#     """
-#     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
-#     response.headers['Cache-Control'] = 'public, max-age=0'
-#     return response
 
-# prevent cached responses
-# if app.config["DEBUG"]:
-#     @app.after_request
-#     def after_request(response):
-#         response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
-#         response.headers["Expires"] = 0
-#         response.headers["Pragma"] = "no-cache"
-#         return response
+
 
 
 
