@@ -1,4 +1,4 @@
-# Data-Dunks (Currently under construction, updating the application for UC Berkeley's Demo Day)
+# Data-Dunks
 
 Project: DataDunks
 https://data-dunks.herokuapp.com/
